@@ -8,7 +8,7 @@ const userModel = require("./schema/user.model");
 const app = express()
 // const jwt = require('jsonwebtoken')
 dotenv.config();
-const dbUrl = "mongodb://localhost:27017/Blog-Mania"
+const dbUrl = "mongodb+srv://logeshwaran:goodmorning@blogmania.y6bz4.mongodb.net/?retryWrites=true&w=majority"
 // routes
 const login = require("./routers/login")
 const user = require("./routers/user")
@@ -31,11 +31,15 @@ app.get("/",verifyToken,async (req,res)=>{
     }
     res.json(posts) 
 });
+app.get("/hello",(req,res)=>res.send("Hello"))
 
-mongoose.connect(dbUrl)
+mongoose.connect(dbUrl,{ useNewUrlParser: true, useUnifiedTopology: true })
 .then(res=>{
     console.log("connected Successfully");
     //console.log(res);
     app.listen(process.env.PORT|| "3001")
 }).catch(err=>console.log(err));
+
+
+
 
