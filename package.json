@@ -4,7 +4,7 @@
   "description": "my backend server",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js"
   },
   "author": "Logeshwaran K",
   "license": "MIT",
