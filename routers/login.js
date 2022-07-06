@@ -14,9 +14,10 @@ router.post("/",(req,res)=>{
     console.log(req.body);
     let data = {...req.body}
     if(!data.email || !data.password || !data.DOJ){
-        res.status(404).send("All fields Are required")
+       return res.status(404).send("All fields Are required")
     }
-    data.password = HashPass(data.email,data.password)
+    try{
+        data.password = HashPass(data.email,data.password)
     console.log(data);
     AddUsers(data).then(response=>{
         console.log(response)
@@ -37,6 +38,10 @@ router.post("/",(req,res)=>{
         console.log(err)
         res.send("Something went wrong").status(500);
     });
+    }catch(err){
+        console.log(err)
+    }
+    
     
     
 });
