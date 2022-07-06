@@ -6,7 +6,7 @@ const router = express.Router()
 const jwt = require('jsonwebtoken');
 
 const HashPass=(email,password)=>crypto.createHmac('sha256',email).update(password).digest('base64')
-const secretKey = process.env.JWT_SECRET_KEY || "jnsdfsdmkfmksldfmdsklvmskvmsfvjisofj90ir2984587634785345y34h3rh2ufufi90if3fFMHYFTDHRDOFIYTE46DTRRESFSZDJFGVHJKNMBHDNFJG"
+const secretKey =  "jnsdfsdmkfmksldfmdsklvmskvmsfvjisofj90ir2984587634785345y34h3rh2ufufi90if3fFMHYFTDHRDOFIYTE46DTRRESFSZDJFGVHJKNMBHDNFJG"
 
 router.get('/',(req,res)=>res.send("<h1>Hello user</h1>"))
 

@@ -15,6 +15,8 @@ const user = require("./routers/user")
 const posts = require("./routers/posts");
 const verifyToken = require('./middleware/tokn');
 
+const PORT = process.env.PORT || 3001
+
 // middleware
 app.use(cors());
 app.use(express.json());    
@@ -37,7 +39,7 @@ mongoose.connect(dbUrl,{ useNewUrlParser: true, useUnifiedTopology: true })
 .then(res=>{
     console.log("connected Successfully");
     //console.log(res);
-    app.listen(process.env.PORT|| "3001")
+    app.listen(PORT)
 }).catch(err=>console.log(err));
 
 
