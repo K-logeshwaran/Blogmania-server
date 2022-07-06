@@ -46,6 +46,7 @@ router.post("/generateToken",(req,res)=>{
     let data;
     
     userModel.findOne({email:req.body.email},(err,user)=>{
+        console.log(user)
         if(err) return  res.status(500).send("Internal Server Error")
         console.log(user);
         if(!user) return res.status(404).send("No User Found")
