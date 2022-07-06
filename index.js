@@ -6,6 +6,7 @@ const mongoose = require("mongoose")
 const dotenv = require('dotenv');
 const userModel = require("./schema/user.model");
 const app = express()
+app.use(cors());
 // const jwt = require('jsonwebtoken')
 dotenv.config();
 const dbUrl = "mongodb+srv://logeshwaran:goodmorning@blogmania.y6bz4.mongodb.net/?retryWrites=true&w=majority"
@@ -18,7 +19,7 @@ const verifyToken = require('./middleware/tokn');
 const PORT = process.env.PORT || 3001
 
 // middleware
-app.use(cors());
+
 app.use(express.json());    
 app.use('/login',login)
 app.use('/user',user)
@@ -37,8 +38,10 @@ app.get("/hello",(req,res)=>res.send("Hello"))
 
 mongoose.connect(dbUrl,{ useNewUrlParser: true, useUnifiedTopology: true })
 .then(res=>{
+    console.log(res)
     console.log("connected Successfully");
     //console.log(res);
+    console.log("Listening on port ",PORT);
     app.listen(PORT)
 }).catch(err=>console.log(err));
 
