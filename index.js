@@ -44,6 +44,23 @@ app.get("/all/users",async (req,res)=>{
 
 app.get("/hello",(req,res)=>res.send("Hello"))
 
+
+app.post('/one',verifyToken,async (req,res)=>{
+    let requestUsr = req.body.name 
+    let user = await userModel.findOne({userName:requestUsr});
+    let reply = {
+        userName:user.userName,
+        bio:user.bio,
+        posts:user.posts,
+        email:user.email,
+    }
+    console.log(user)
+    console.log(req.body)
+    return res.json(reply);
+});
+
+
+
 mongoose.connect(dbUrl,{ useNewUrlParser: true, useUnifiedTopology: true })
 .then(res=>{
     console.log(res)

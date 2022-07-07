@@ -33,4 +33,6 @@ router.put("/bio",verifyToken,(req,res)=>{
     })
 });
 
+
+
 module.exports = router;

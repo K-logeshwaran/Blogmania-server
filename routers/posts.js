@@ -33,4 +33,6 @@ router.delete("/delete",verifyToken,async (req,res)=>{
     res.send("Deleted Successfully")
 });
 
+
+
 module.exports = router;
