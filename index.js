@@ -34,6 +34,13 @@ app.get("/",verifyToken,async (req,res)=>{
     }
     res.json(posts) 
 });
+
+app.get("/all/users",async (req,res)=>{
+    console.log(req)
+    let allUsers = await  userModel.find({})
+    res.json(allUsers)
+})
+
 app.get("/hello",(req,res)=>res.send("Hello"))
 
 mongoose.connect(dbUrl,{ useNewUrlParser: true, useUnifiedTopology: true })

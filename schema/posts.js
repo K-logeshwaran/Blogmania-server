@@ -9,7 +9,6 @@ const POST =  new Schema({
     content:{
         type:String,
         required:true,
-        unique: true
     },
     created_at:{
         type:Date,
