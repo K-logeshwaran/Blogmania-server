@@ -10,6 +10,7 @@ app.use(cors());
 // const jwt = require('jsonwebtoken')
 dotenv.config();
 const dbUrl = "mongodb+srv://logeshwaran:goodmorning@blogmania.y6bz4.mongodb.net/?retryWrites=true&w=majority"
+//const dbUrl = "mongodb+srv://Logeshwaran-K:goodmorning@cluster0.bgckn.mongodb.net/?retryWrites=true&w=majority"
 // routes
 const login = require("./routers/login")
 const user = require("./routers/user")

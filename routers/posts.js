@@ -16,5 +16,21 @@ router.post("/",verifyToken,async (req,res)=>{
     res.send("Success")
 });
 
+router.delete("/delete",verifyToken,async (req,res)=>{
+    let user = await userModel.findById(req.user.id);
+    let posts = user.posts
+    let id = req.headers["postid"] || req.body.postid;
+    console.log(id)
+    for(let post of posts){
+        console.log(post._id);
+        if(id == post._id){
+            let reqindex =posts.indexOf(post)
+            posts.splice(reqindex);
+            console.log("deleted")
+        }
+    }
+    user.save()
+    res.send("Deleted Successfully")
+});
 
 module.exports = router;
