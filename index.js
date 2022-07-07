@@ -48,6 +48,7 @@ app.get("/hello",(req,res)=>res.send("Hello"))
 app.post('/one',verifyToken,async (req,res)=>{
     let requestUsr = req.body.name 
     let user = await userModel.findOne({userName:requestUsr});
+    if(!user) return res.send("Nouser found")
     let reply = {
         userName:user.userName,
         bio:user.bio,
